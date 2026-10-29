@@ -33,7 +33,7 @@ def guide_markdown(analysis,language="zh"):
             "\n## Scope\n\n| Classification | Scenario | Current support |\n|---|---|---|",
             *[f"| {x} | {y} | {z} |" for x,y,z in scope_rows("en")],
             "\n## What the work demonstrates\n\n- SQL/Python metric construction and experimental effect assessment.\n- Integrity checks, uncertainty interpretation and business decision boundaries.\n- Interactive delivery and bilingual communication.\n- Implemented, bounded LLM tool interface with inspectable evidence; live-provider verification pending.",
-            "\n## How to access\n\nThe supplied static introduction opens in a browser with no Python, account or key. The interactive app currently runs on the author's own computer. A localhost URL is not accessible to external reviewers; an independently hosted URL or a live demonstration is required for remote interaction. Technical reviewers can run the separately supplied source package using README.md.",
+            "\n## How to access\n\nThe supplied static introduction opens in a browser with no Python, account or key. Open the no-login browser edition at https://jackzmyq.github.io/game-retention-copilot/ for scenarios, downloads and offline rules. Its SQL evidence was executed during the Python build, not by an arbitrary browser SQL engine. The full Python app runs locally; localhost is not a public URL. Technical reviewers can run the separately supplied source package using README.md.",
             "\n## Key limitations\n\nThis release has no country, payment, timestamp or gate-exposure events. Recorded rounds have a 7/14-day source-description conflict and cannot serve as a prospective D7 predictor. The application currently supports this fixed reviewed dataset; it does not accept arbitrary CSVs, monitor live games or automatically change game settings.",
             f"\nSource fingerprint: `{analysis['source_sha256']}`.\n\nSource: https://assets.datacamp.com/production/project_184/datasets/cookie_cats.csv"]
     else:
@@ -46,7 +46,7 @@ def guide_markdown(analysis,language="zh"):
             "\n## 适用范围\n\n| 分类 | 场景 | 当前支持程度 |\n|---|---|---|",
             *[f"| {x} | {y} | {z} |" for x,y,z in scope_rows("zh")],
             "\n## 能展示的岗位能力\n\n- **数据分析**：用 SQL/Python 构建留存指标，评估实验效果。\n- **业务判断**：结合区间、完整性和业务边界提出行动建议。\n- **交付沟通**：交互看板、可复核证据和中英文简报。\n- **AI 工程**：已实现受限工具调用接口；真实模型调用验收待完成。",
-            "\n## 如何体验\n\n免安装介绍文件可直接用浏览器打开，不需要 Python、账号或密钥。交互版目前运行在作者电脑上，localhost 地址不能供外部 HR 直接访问；远程操作需要另行部署的地址或现场演示。技术面试官如需复现，可使用单独提供的源码包，按 README.md 运行。",
+            "\n## 如何体验\n\n免安装介绍文件可直接用浏览器打开，不需要 Python、账号或密钥。免登录访客版：https://jackzmyq.github.io/game-retention-copilot/ ，支持分析、沙盘、下载和离线规则。网页 SQL 为 Python 构建时已执行的聚合查询记录。完整 Python 版可本地运行；localhost 不是外部访问地址。技术面试官如需复现，可使用单独提供的源码包，按 README.md 运行。",
             "\n## 重要边界\n\n数据没有国家、付费、逐日时间或门槛曝光事件；累计局数的源说明存在 7/14 天冲突，不能作为早期预测特征。当前程序适配固定的已审核数据，不支持任意 CSV 上传，不是实时游戏监控平台，也不会自动修改游戏配置。",
             f"\n来源指纹：`{analysis['source_sha256']}`。\n\n来源：https://assets.datacamp.com/production/project_184/datasets/cookie_cats.csv"]
     return "\n".join(lines)+"\n"
