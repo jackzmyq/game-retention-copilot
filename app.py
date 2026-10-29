@@ -37,7 +37,7 @@ with st.sidebar:
         tr("AI 分析助手","AI copilot"),tr("指标与项目说明","Definitions & scope")],key="workspace")
     st.divider()
     st.markdown('<div class="source-status"><span class="status-dot"></span>'+tr("本地数据已就绪","LOCAL DATA READY")+'<br>Cookie Cats · 90,189 '+tr("名玩家","players")+'</div>',unsafe_allow_html=True)
-    st.caption(tr("历史静态样本，不是实时监控或米哈游内部数据。","Historical static sample; not live monitoring or miHoYo telemetry."))
+    st.caption(tr("历史静态样本，不代表实时监控或其他产品的用户行为。","Historical static sample; not live monitoring or evidence about other products."))
     st.link_button(tr("原始数据地址","Publisher data"),SOURCE_URL)
 
 try:
@@ -79,7 +79,7 @@ def show_trace(result,prefix="trace"):
 if page in ["作品导览","Project guide"]:
     st.markdown('<div class="page-meta">YANQING MA / PROJECT GUIDE / GAME OPERATIONS ANALYTICS</div>',unsafe_allow_html=True)
     st.title(tr("用证据，回答一次游戏上线决策","One game decision, backed by evidence"))
-    st.caption(tr("游戏留存实验分析与 AI 运营助手 · 面向招聘浏览与业务演示","Game Retention Experiment Analytics & AI Operations Copilot · reviewer orientation"))
+    st.caption(tr("游戏留存实验分析与 AI 运营助手 · 面向产品、运营与分析协作","Game Retention Experiment Analytics & AI Operations Copilot · reviewer orientation"))
     st.markdown(note(tr("这个项目研究：把游戏进度门槛从第 30 关后移至第 40 关，玩家是否更愿意回来？它把数据检查、实验评估、情景分析和报告交付连接在一起。",
         "The case asks whether moving a progression gate from level 30 to 40 improves return behavior. It connects data checks, experiment assessment, decision scenarios and report delivery.")),unsafe_allow_html=True)
     with st.container(border=True):
@@ -107,8 +107,8 @@ if page in ["作品导览","Project guide"]:
         st.write(tr("当前程序只适配这份固定、已审核的数据，不支持任意 CSV 上传。新手引导、版本或地区实验是方法迁移方向，接入新数据后才能开展对应分析。",
             "The app currently supports this fixed reviewed dataset, not arbitrary CSV uploads. Onboarding, version or regional experiments require new data and validation."))
     with st.expander(tr("使用方式与常见问题","Access and frequently asked questions")):
-        st.markdown(tr("**需要安装或登录吗？** 已运行的交互版无需登录；离线规则、图表和报告无需 API Key。\n\n**HR 能直接打开当前网址吗？** 不能。127.0.0.1 仅指向当前电脑；远程交互需要另行部署地址。免安装介绍文件则可直接打开。\n\n**能上传自己的游戏数据吗？** 当前不能；需要适配数据契约与指标。\n\n**分析是否代表米哈游玩家？** 不代表；这是 Cookie Cats 历史公开实验。",
-            "**Install or sign in?** The running app needs no sign-in. Offline rules, charts and reports need no API key.\n\n**Can an external reviewer use localhost?** No. It refers to the current machine. Remote interaction needs a separately hosted URL; the static introduction opens directly.\n\n**Upload another game's data?** Not currently; schema and metrics need adaptation.\n\n**miHoYo player evidence?** No; this is a historical public Cookie Cats experiment."))
+        st.markdown(tr("**需要安装或登录吗？** 已运行的交互版无需登录；离线规则、图表和报告无需 API Key。\n\n**如何远程体验？** 访问 https://jackzmyq.github.io/game-retention-copilot/ 。访客版无需登录或 Key；127.0.0.1 仅用于本机完整 Python 版。\n\n**能上传自己的游戏数据吗？** 当前不能；需要适配数据契约与指标。\n\n**能直接代表其他产品吗？** 不能；这是 Cookie Cats 历史公开实验，其他产品需新数据与验证。",
+            "**Install or sign in?** The running app needs no sign-in. Offline rules, charts and reports need no API key.\n\n**Remote access?** Visit https://jackzmyq.github.io/game-retention-copilot/ with no sign-in or key. Localhost is only for the full Python app on the current machine.\n\n**Upload another game's data?** Not currently; schema and metrics need adaptation.\n\n**Evidence for other products?** No; this historical Cookie Cats experiment requires new data and validation for transfer."))
     st.download_button(tr("下载作品介绍与使用说明","Download project introduction"),guide_markdown(a,lang),file_name=f"project_guide_{lang}.md",mime="text/markdown")
 
 elif page in ["实验决策","Experiment decision"]:
@@ -423,8 +423,8 @@ else:
     st.subheader(tr("面向国际化运营的迁移设计","Extension to international operations"))
     st.markdown(tr("现有样本不含国家或语言，不能产出地区结论。迁移方案需要：匿名玩家 ID、事件 UTC 时间、玩家时区、地区与语言、平台、版本、实验分流与门槛曝光；再核对当地日界、完整观察期、地区分层随机化和多重比较。中英文简报共用一套计算结果。",
                    "The release has no country or language fields, so no regional finding is claimed. An extension needs pseudonymous player IDs, event UTC time, player timezone, country/locale, platform, version, assignment and gate-exposure events; then validate local-day boundaries, complete outcome windows, region-stratified randomization and multiplicity. Chinese and English briefs share the same computed evidence."))
-    st.markdown(tr("**面向原神 / 星铁 / 绝区零的业务迁移：**可以把本例的“节奏门槛变更”转换为新手引导或内容解锁节奏实验；具体玩法假设需要新数据验证，不能把休闲消除游戏结论直接套用。",
-                   "**Transfer to Genshin / Star Rail / ZZZ:** use the experiment framework for onboarding or content-unlock pacing, but validate new game-specific hypotheses and data. A casual-puzzle result does not establish an effect in another genre."))
+    st.markdown(tr("**向其他产品迁移：**可以把本例的“节奏门槛变更”转换为新手引导或内容解锁节奏实验；具体玩法假设需要新数据验证，不能把休闲消除游戏结论直接套用。",
+                   "**Transfer to other products:** use the experiment framework for onboarding or content-unlock pacing, but validate new game-specific hypotheses and data. A casual-puzzle result does not establish an effect in another genre."))
     st.subheader(tr("数据来源与可复现性","Source and reproducibility"))
     st.markdown(f"[DataCamp dataset]({SOURCE_URL}) · [Historical teaching notebook](https://github.com/DataCamp-Data-Science-Projects/Project-Mobile-Games-AB-Testing-with-Cookie-Cats)")
     st.code(a["source_sha256"],language=None)
