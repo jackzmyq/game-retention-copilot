@@ -1,0 +1,27 @@
+name: Verify Python analytics
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  analytics:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+          cache: pip
+      - run: python -m pip install -r requirements-lock.txt
+      - name: Rebuild reviewed evidence
+        run: |
+          python scripts/download_data.py
+          python scripts/build_pipeline.py
+          python -m src.reporting
+          python scripts/build_hr_pack.py
+          python scripts/build_web.py
+      - name: Test analytics and UI
+        run: python -m pytest -q
