@@ -1,0 +1,304 @@
+{
+  "build_id": "f85b0b9ae505441da365f108e9447615",
+  "built_at_utc": "2026-10-29T13:40:29.439713+00:00",
+  "source_sha256": "5ab54d761fbddcd50de7b88e4eaf7837cba4569474f50c043a4d17ee342c46bd",
+  "rows": 90189,
+  "arms": [
+    {
+      "version": "gate_30",
+      "players": 44700,
+      "retained_d1": 20034,
+      "retained_d7": 8502,
+      "d1_rate": 0.4481879194630872,
+      "d7_rate": 0.19020134228187918,
+      "mean_observed_rounds": 52.45626398210291,
+      "zero_round_players": 1937,
+      "d1_ci_low": 0.44358236514774474,
+      "d1_ci_high": 0.45280237833639625,
+      "d7_ci_low": 0.18658979684366292,
+      "d7_ci_high": 0.19386613051747012
+    },
+    {
+      "version": "gate_40",
+      "players": 45489,
+      "retained_d1": 20119,
+      "retained_d7": 8279,
+      "d1_rate": 0.44228274967574577,
+      "d7_rate": 0.18200004396667327,
+      "mean_observed_rounds": 51.29877552814966,
+      "zero_round_players": 2057,
+      "d1_ci_low": 0.43772374727049607,
+      "d1_ci_high": 0.44685149948007,
+      "d7_ci_low": 0.17848120097823006,
+      "d7_ci_high": 0.18557259139286592
+    }
+  ],
+  "tests": [
+    {
+      "metric": "D1",
+      "control_rate": 0.4481879194630872,
+      "treatment_rate": 0.44228274967574577,
+      "delta": -0.005905169787341458,
+      "relative_change": -0.01317565585974659,
+      "ci_low": -0.012391904992707325,
+      "ci_high": 0.000582095069752226,
+      "p_value": 0.07440965529691913,
+      "holm_p": 0.07440965529691913
+    },
+    {
+      "metric": "D7",
+      "control_rate": 0.19020134228187918,
+      "treatment_rate": 0.18200004396667327,
+      "delta": -0.008201298315205913,
+      "relative_change": -0.043119034896460164,
+      "ci_low": -0.013281940871914826,
+      "ci_high": -0.0031213026887613,
+      "p_value": 0.001554249975614329,
+      "holm_p": 0.003108499951228658
+    }
+  ],
+  "srm": {
+    "chi_square": 6.9024049496058275,
+    "p_value": 0.008607987810836262,
+    "assumed_control_share": 0.5,
+    "threshold": 0.01,
+    "allocation_verified": false
+  },
+  "quality": [
+    {
+      "check_name": "rows",
+      "observed": 90189,
+      "status": "PASS",
+      "note": "One row per player; not session-level data"
+    },
+    {
+      "check_name": "missing_cells",
+      "observed": 0,
+      "status": "PASS",
+      "note": "No imputation"
+    },
+    {
+      "check_name": "duplicate_ids",
+      "observed": 0,
+      "status": "PASS",
+      "note": "Player-level primary key"
+    },
+    {
+      "check_name": "join_rows",
+      "observed": 90189,
+      "status": "PASS",
+      "note": "Assignments and outcomes join 1:1"
+    },
+    {
+      "check_name": "max_observed_rounds",
+      "observed": 49854,
+      "status": "REVIEW",
+      "note": "Extreme value preserved; sensitivity analysis below"
+    },
+    {
+      "check_name": "d7_without_d1",
+      "observed": 3599,
+      "status": "INFO",
+      "note": "D7 is not a subset of D1; not a sequential funnel"
+    },
+    {
+      "check_name": "dates_and_regions",
+      "observed": 0,
+      "status": "UNAVAILABLE",
+      "note": "Daily trend, country and exposure checks not possible"
+    }
+  ],
+  "sensitivity": [
+    {
+      "sample": "All players",
+      "version": "gate_30",
+      "players": 44700,
+      "mean_rounds": 52.45626398210291,
+      "median_rounds": 17.0,
+      "p99_rounds": 493.0,
+      "d7_rate": 0.19020134228187918,
+      "d7_delta": -0.008201298315205913
+    },
+    {
+      "sample": "All players",
+      "version": "gate_40",
+      "players": 45489,
+      "mean_rounds": 51.29877552814966,
+      "median_rounds": 16.0,
+      "p99_rounds": 492.1200000000026,
+      "d7_rate": 0.18200004396667327,
+      "d7_delta": -0.008201298315205913
+    },
+    {
+      "sample": "Exclude global maximum (sensitivity only)",
+      "version": "gate_30",
+      "players": 44699,
+      "mean_rounds": 51.342110561757536,
+      "median_rounds": 17.0,
+      "p99_rounds": 493.0,
+      "d7_rate": 0.19018322557551623,
+      "d7_delta": -0.00818318160884296
+    },
+    {
+      "sample": "Exclude global maximum (sensitivity only)",
+      "version": "gate_40",
+      "players": 45489,
+      "mean_rounds": 51.29877552814966,
+      "median_rounds": 16.0,
+      "p99_rounds": 492.1200000000026,
+      "d7_rate": 0.18200004396667327,
+      "d7_delta": -0.00818318160884296
+    }
+  ],
+  "round_bands": [
+    {
+      "version": "gate_30",
+      "round_band": "0",
+      "players": 1937,
+      "retained_d7": 16,
+      "d7_rate": 0.008260196179659268
+    },
+    {
+      "version": "gate_30",
+      "round_band": "1-10",
+      "players": 15736,
+      "retained_d7": 304,
+      "d7_rate": 0.019318759532282664
+    },
+    {
+      "version": "gate_30",
+      "round_band": "101-300",
+      "players": 4745,
+      "retained_d7": 3134,
+      "d7_rate": 0.6604847207586934
+    },
+    {
+      "version": "gate_30",
+      "round_band": "11-30",
+      "players": 10669,
+      "retained_d7": 916,
+      "d7_rate": 0.08585621895210423
+    },
+    {
+      "version": "gate_30",
+      "round_band": "301+",
+      "players": 1350,
+      "retained_d7": 1217,
+      "d7_rate": 0.9014814814814814
+    },
+    {
+      "version": "gate_30",
+      "round_band": "31-100",
+      "players": 10263,
+      "retained_d7": 2915,
+      "d7_rate": 0.2840300107181136
+    },
+    {
+      "version": "gate_40",
+      "round_band": "0",
+      "players": 2057,
+      "retained_d7": 13,
+      "d7_rate": 0.006319883325230919
+    },
+    {
+      "version": "gate_40",
+      "round_band": "1-10",
+      "players": 16259,
+      "retained_d7": 315,
+      "d7_rate": 0.019373885232794145
+    },
+    {
+      "version": "gate_40",
+      "round_band": "101-300",
+      "players": 4963,
+      "retained_d7": 3268,
+      "d7_rate": 0.6584726979649406
+    },
+    {
+      "version": "gate_40",
+      "round_band": "11-30",
+      "players": 10904,
+      "retained_d7": 853,
+      "d7_rate": 0.07822817314746881
+    },
+    {
+      "version": "gate_40",
+      "round_band": "301+",
+      "players": 1327,
+      "retained_d7": 1213,
+      "d7_rate": 0.9140919366993218
+    },
+    {
+      "version": "gate_40",
+      "round_band": "31-100",
+      "players": 9979,
+      "retained_d7": 2617,
+      "d7_rate": 0.26225072652570397
+    }
+  ],
+  "transitions": [
+    {
+      "version": "gate_30",
+      "returned_d1": 0,
+      "returned_d7": 0,
+      "players": 22840
+    },
+    {
+      "version": "gate_30",
+      "returned_d1": 0,
+      "returned_d7": 1,
+      "players": 1826
+    },
+    {
+      "version": "gate_30",
+      "returned_d1": 1,
+      "returned_d7": 0,
+      "players": 13358
+    },
+    {
+      "version": "gate_30",
+      "returned_d1": 1,
+      "returned_d7": 1,
+      "players": 6676
+    },
+    {
+      "version": "gate_40",
+      "returned_d1": 0,
+      "returned_d7": 0,
+      "players": 23597
+    },
+    {
+      "version": "gate_40",
+      "returned_d1": 0,
+      "returned_d7": 1,
+      "players": 1773
+    },
+    {
+      "version": "gate_40",
+      "returned_d1": 1,
+      "returned_d7": 0,
+      "players": 13613
+    },
+    {
+      "version": "gate_40",
+      "returned_d1": 1,
+      "returned_d7": 1,
+      "players": 6506
+    }
+  ],
+  "planning": {
+    "baseline": 0.19020134228187918,
+    "absolute_mde": 0.01,
+    "power": 0.8,
+    "alpha": 0.05,
+    "players_per_arm": 23688
+  },
+  "limitations": [
+    "No region, timestamps, revenue, acquisition or exposure logs",
+    "Source materials conflict on rounds horizon (7 vs 14 days); recorded total only, not a verified early-window feature",
+    "Historical tutorial experiment; not miHoYo data or current industry benchmark",
+    "Equal allocation assumed, not source-verified; SRM is a screening check",
+    "Recorded-period rounds cannot establish an early causal driver or valid prospective churn predictor",
+    "D7 primary metric chosen retrospectively for this portfolio; experiment preregistration unavailable"
+  ]
+}

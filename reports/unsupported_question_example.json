@@ -1,0 +1,51 @@
+{
+  "mode": "offline_rules",
+  "model": null,
+  "question": "为什么欧洲上周 DAU 下降？",
+  "answer": "当前数据无法回答该问题：没有地区、渠道、日历时间或付费字段。不能据此定位欧洲活跃下降或计算收入。需要接入匿名玩家事件时间、地区、渠道与相关业务日志。现有数据支持分组 D1/D7 留存和记录期累计局数分析。",
+  "trace": [
+    {
+      "tool": "query_metrics",
+      "arguments": {
+        "sql": "SELECT * FROM v_capabilities WHERE available=0"
+      },
+      "result": {
+        "sql": "SELECT * FROM v_capabilities WHERE available = 0",
+        "columns": [
+          "metric",
+          "available",
+          "reason"
+        ],
+        "rows": [
+          {
+            "metric": "DAU/time anomaly",
+            "available": 0,
+            "reason": "No event timestamps or calendar dates"
+          },
+          {
+            "metric": "Country/channel comparison",
+            "available": 0,
+            "reason": "No country, locale or acquisition channel fields"
+          },
+          {
+            "metric": "Revenue/ROI",
+            "available": 0,
+            "reason": "No payment, acquisition cost or revenue fields"
+          },
+          {
+            "metric": "Early churn prediction",
+            "available": 0,
+            "reason": "No strictly earlier observation window and later outcome window"
+          }
+        ],
+        "row_count": 4,
+        "truncated": false,
+        "elapsed_ms": 0.0
+      }
+    }
+  ],
+  "usage": {},
+  "review_required": true,
+  "build_id": "f85b0b9ae505441da365f108e9447615",
+  "source_sha256": "5ab54d761fbddcd50de7b88e4eaf7837cba4569474f50c043a4d17ee342c46bd"
+}

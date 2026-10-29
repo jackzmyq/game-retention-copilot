@@ -1,0 +1,124 @@
+{
+  "mode": "offline_rules",
+  "model": null,
+  "question": "是否应该上线 gate_40？",
+  "answer": "**建议：暂缓全量上线 gate_40，先核查实验完整性。**\n\n- **留存证据：** D7 为 19.02% → 18.20%，差异 **-0.820 个百分点**；95% 区间 [-1.328, -0.312]pp，Holm 校正 p=0.00311。\n- **分流待核验：** 假设 50:50 时 SRM p=0.00861，触发 .01 阈值复核；预期分流比例并未提供。\n- **下一步：** 核查预期分流、入组规则、结果完整性和门槛曝光，再决定是否复测。当前数据不能识别机制原因或地区差异。\n\n这是一份离线规则生成的摘要。下方可展开本次 SQL 与证据；如需完整报告，请输入“生成运营报告”。",
+  "trace": [
+    {
+      "tool": "query_metrics",
+      "arguments": {
+        "sql": "SELECT * FROM v_arm_metrics ORDER BY version"
+      },
+      "result": {
+        "sql": "SELECT * FROM v_arm_metrics ORDER BY version",
+        "columns": [
+          "version",
+          "players",
+          "retained_d1",
+          "retained_d7",
+          "d1_rate",
+          "d7_rate",
+          "mean_observed_rounds",
+          "zero_round_players"
+        ],
+        "rows": [
+          {
+            "version": "gate_30",
+            "players": 44700,
+            "retained_d1": 20034,
+            "retained_d7": 8502,
+            "d1_rate": 0.4481879194630872,
+            "d7_rate": 0.19020134228187918,
+            "mean_observed_rounds": 52.45626398210291,
+            "zero_round_players": 1937
+          },
+          {
+            "version": "gate_40",
+            "players": 45489,
+            "retained_d1": 20119,
+            "retained_d7": 8279,
+            "d1_rate": 0.44228274967574577,
+            "d7_rate": 0.18200004396667327,
+            "mean_observed_rounds": 51.29877552814966,
+            "zero_round_players": 2057
+          }
+        ],
+        "row_count": 2,
+        "truncated": false,
+        "elapsed_ms": 63.0
+      }
+    },
+    {
+      "tool": "query_metrics",
+      "arguments": {
+        "sql": "SELECT * FROM v_test_results ORDER BY metric"
+      },
+      "result": {
+        "sql": "SELECT * FROM v_test_results ORDER BY metric",
+        "columns": [
+          "metric",
+          "control_rate",
+          "treatment_rate",
+          "delta",
+          "relative_change",
+          "ci_low",
+          "ci_high",
+          "p_value",
+          "holm_p"
+        ],
+        "rows": [
+          {
+            "metric": "D1",
+            "control_rate": 0.4481879194630872,
+            "treatment_rate": 0.44228274967574577,
+            "delta": -0.005905169787341458,
+            "relative_change": -0.01317565585974659,
+            "ci_low": -0.012391904992707325,
+            "ci_high": 0.000582095069752226,
+            "p_value": 0.07440965529691913,
+            "holm_p": 0.07440965529691913
+          },
+          {
+            "metric": "D7",
+            "control_rate": 0.19020134228187918,
+            "treatment_rate": 0.18200004396667327,
+            "delta": -0.008201298315205913,
+            "relative_change": -0.043119034896460164,
+            "ci_low": -0.013281940871914826,
+            "ci_high": -0.0031213026887613,
+            "p_value": 0.001554249975614329,
+            "holm_p": 0.003108499951228658
+          }
+        ],
+        "row_count": 2,
+        "truncated": false,
+        "elapsed_ms": 0.0
+      }
+    },
+    {
+      "tool": "get_experiment_evidence",
+      "arguments": {},
+      "result": {
+        "srm": {
+          "chi_square": 6.9024049496058275,
+          "p_value": 0.008607987810836262,
+          "assumed_control_share": 0.5,
+          "threshold": 0.01,
+          "allocation_verified": false
+        },
+        "limitations": [
+          "No region, timestamps, revenue, acquisition or exposure logs",
+          "Source materials conflict on rounds horizon (7 vs 14 days); recorded total only, not a verified early-window feature",
+          "Historical tutorial experiment; not miHoYo data or current industry benchmark",
+          "Equal allocation assumed, not source-verified; SRM is a screening check",
+          "Recorded-period rounds cannot establish an early causal driver or valid prospective churn predictor",
+          "D7 primary metric chosen retrospectively for this portfolio; experiment preregistration unavailable"
+        ]
+      }
+    }
+  ],
+  "usage": {},
+  "review_required": true,
+  "build_id": "f85b0b9ae505441da365f108e9447615",
+  "source_sha256": "5ab54d761fbddcd50de7b88e4eaf7837cba4569474f50c043a4d17ee342c46bd"
+}
