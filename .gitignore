@@ -1,0 +1,16 @@
+.venv/
+.cache/
+__pycache__/
+.pytest_cache/
+tmp/
+.env
+.env.*
+!.env.example
+.streamlit/secrets.toml
+data/raw/*
+!data/raw/.gitkeep
+data/processed/*.sqlite*
+data/processed/.retention-build-*/
+reports/*.pending
+reports/agent_runs/
+*.log
