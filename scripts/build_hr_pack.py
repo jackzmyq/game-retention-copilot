@@ -30,15 +30,15 @@ main{{max-width:1000px;margin:auto;padding:46px 28px 60px}}header{{padding-botto
 <div class="decision"><b>建议：暂缓全量上线，先核查实验完整性。</b><br>观察到负向留存差异；在未核实的 50:50 分流假设下，人数比例触发复核信号。需要分流与结果日志，才能进一步确认因果解释。</div></section>
 <section><h2>02 / 作品展示的能力</h2><div class="grid"><article><h3>分析与判断</h3><p>SQL/Python 指标构建、实验效果评估、不确定性解释、极端值复核，以及有条件的运营建议。</p></article><article><h3>交付与自动化</h3><p>交互式工作台、情景导出、中英文简报、可追溯查询，以及已实现的 LLM 工具调用接口。</p></article></div></section>
 <section id="walkthrough"><h2>03 / 如何查看与体验</h2><div class="note"><b>现在这份文件就能看。</b>它可直接用浏览器打开；无需安装 Python、注册账号或提供 API Key，也不会调用模型或发送数据。</div>
-<div class="grid" style="margin-top:16px"><article><h3>HR：先读这份介绍</h3><ol><li>看业务问题、核心结论与能力展示。</li><li>查看适用范围与完成状态，了解项目定位。</li><li>如需交互演示，请使用作者另行提供的已部署地址或现场演示。</li></ol></article><article><h3>有交互版时：三分钟路线</h3><ol><li><b>实验决策</b>：看分组人数、留存区间与建议。</li><li><b>决策沙盘</b>：改变规模或容忍边界，查看情景变化。</li><li><b>行为与质量</b>：检查极端值与回访组合。</li><li><b>AI 助手</b>：选离线规则，问是否上线，再问地区问题，展开证据。</li></ol></article></div>
-<p class="muted">当前交互版只运行在作者电脑；127.0.0.1 / localhost 不是外部可访问的演示地址。技术复现说明在单独的源码包 README.md 中，不需要 HR 自行搭建环境。</p></section>
+<div class="grid" style="margin-top:16px"><article><h3>HR：先读这份介绍</h3><ol><li>看业务问题、核心结论与能力展示。</li><li>查看适用范围与完成状态，了解项目定位。</li><li>交互演示：<a href="https://jackzmyq.github.io/game-retention-copilot/">打开免登录访客版</a>。</li></ol></article><article><h3>有交互版时：三分钟路线</h3><ol><li><b>实验决策</b>：看分组人数、留存区间与建议。</li><li><b>决策沙盘</b>：改变规模或容忍边界，查看情景变化。</li><li><b>行为与质量</b>：检查极端值与回访组合。</li><li><b>AI 助手</b>：选离线规则，问是否上线，再问地区问题，展开证据。</li></ol></article></div>
+<p class="muted">访客版支持分析、沙盘、报告下载与离线规则，无需账号或 Key。SQL 为构建时执行的聚合证据；完整 Python 版可本地复现，localhost 不是公开地址。技术复现说明在单独的源码包 README.md 中，不需要 HR 自行搭建环境。</p></section>
 <section id="scope"><h2>04 / 适用广度与边界</h2><div class="table-wrap"><table><thead><tr><th>分类</th><th>场景</th><th>当前支持程度</th></tr></thead><tbody>{scope}</tbody></table></div>
 <p class="muted">当前适配固定数据，不支持任意 CSV 上传。方法可以迁移，结论不能直接外推至其他游戏或国家；新场景需重新接入数据、定义指标并验证。</p></section>
 <section id="status"><h2>05 / 哪些已经完成</h2><div class="table-wrap"><table><tbody>
 <tr><th>已完成</th><td>本地分析管线、实验工作台、情景、质量复核、双语简报、离线助手、查询边界、证据版本校验。</td></tr>
 <tr><th>已实现、待实测</th><td>DeepSeek 云端工具调用接口；真实模型端到端验收需配置密钥后完成。本地测试不等于模型验收。</td></tr>
 <tr><th>设计方案</th><td>地区、语言、时区与曝光数据契约；尚未用真实国际化数据实施。</td></tr>
-<tr><th>尚未实现</th><td>公开交互部署、实时游戏事件接入、任意数据上传、自动运营干预。</td></tr>
+<tr><th>尚未实现</th><td>实时游戏事件接入、任意数据上传、自动运营干预。</td></tr>
 </tbody></table></div></section>
 <details><summary>数据与方法说明</summary><p>数据来自 <a href="{escape(SOURCE_URL)}">DataCamp 公开实验 CSV</a>，不是米哈游内部数据。源材料说明随机分组，但预期分流比例、逐日时间、地区、付费与曝光日志未提供。累计局数的说明存在 7/14 天冲突，不能作为早期流失预测特征。</p><p>留存比较使用两比例检验、逐项 Newcombe 95% 区间及 D1/D7 的 Holm 校正。D7 是本作品事后选定的主指标，未声称预注册。沙盘人数是条件性规模换算，不是实测损失或预测。</p><p>来源 SHA-256：<code>{escape(a['source_sha256'])}</code></p></details>
 <details lang="en"><summary>English overview</summary><p><b>Game Retention Experiment Analytics & AI Operations Copilot.</b> This independent portfolio case uses {a['rows']:,} publicly released Cookie Cats players to evaluate a progression-gate change. Treatment D7 retention is {abs(d7['delta'])*100:.3f} percentage points lower. The recommendation is conditional on an allocation-integrity audit.</p><p>Implemented: local analytics, interactive evidence, scenarios, bilingual briefs and a bounded LLM tool interface. Live-provider acceptance and public interactive hosting are pending. The app supports this fixed dataset; broader games and markets require new data and validation. This static file needs no installation or key.</p></details>
@@ -60,7 +60,7 @@ def build():
     with zipfile.ZipFile(archive,"w",zipfile.ZIP_DEFLATED) as z:
         z.writestr("index.html",html)
         z.write(pdf,pdf.name)
-        z.writestr("START_HERE.txt","请先解压，再打开两页 PDF 或双击 index.html。无需安装、账号或密钥。\n这是作品介绍阅读版；交互版需作者另行提供已部署地址或现场演示。\n127.0.0.1/localhost 只能在运行项目的电脑上使用。\n\nExtract this archive and open the PDF or index.html. No installation or API key required.\n")
+        z.writestr("START_HERE.txt","请先解压，再打开两页 PDF 或双击 index.html。无需安装、账号或密钥。\n交互访客版：https://jackzmyq.github.io/game-retention-copilot/\n127.0.0.1/localhost 只能在运行项目的电脑上使用。\n\nExtract this archive and open the PDF or index.html. No installation or API key required.\n")
         for lang in ["zh","en"]:
             z.writestr(f"project_guide_{lang}.md",guide_markdown(a,lang))
             z.writestr(f"decision_brief_{lang}.md",decision_report(a,lang))

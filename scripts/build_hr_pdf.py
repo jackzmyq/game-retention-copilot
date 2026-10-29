@@ -89,8 +89,8 @@ def build():
             ("当前不支持", "逐日 DAU、投放 ROI、付费效果、早期流失预测；缺少相应事件、成本或独立的早期观察窗口。"),
         ],[90,width-90]),
         p("交付方式与当前状态","h2"),
-        p("<b>直接阅读：</b>本 PDF 或免安装 HTML 介绍，无需账号、密钥或 Python。<br/><b>交互体验：</b>当前运行在作者电脑；127.0.0.1 / localhost 不能供外部 HR 直接访问。远程操作需另行部署地址或现场演示。<br/><b>技术复现：</b>另附源码包与运行说明，供需要深入查看的技术评审使用。"),
-        p("<b>已完成：</b>本地分析、看板、情景、质量与证据版本检查、双语报告、离线规则助手。<br/><b>待验收：</b>真实 DeepSeek 调用。<b>尚未实施：</b>公开交互部署、实时游戏接入与自动运营干预。","small")])
+        p("<b>直接阅读：</b>本 PDF 或免安装 HTML 介绍，无需账号、密钥或 Python。<br/><b>交互体验：</b><link href='https://jackzmyq.github.io/game-retention-copilot/' color='#2463a6'>jackzmyq.github.io/game-retention-copilot/</link>，无需登录或 Key。支持分析、沙盘、下载与离线规则；完整 Python 版在本地运行，localhost 不是外部地址。<br/><b>技术复现：</b>另附源码包与运行说明，供需要深入查看的技术评审使用。"),
+        p("<b>已完成：</b>本地分析、看板、情景、质量与证据版本检查、双语报告、离线规则助手。<br/><b>待验收：</b>真实 DeepSeek 调用。<b>尚未实施：</b>实时游戏接入与自动运营干预。","small")])
     def decorate(canvas,document):
         canvas.saveState()
         canvas.setStrokeColor(teal)
