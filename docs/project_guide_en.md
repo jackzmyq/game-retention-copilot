@@ -1,6 +1,6 @@
 # Game Retention Experiment Analytics & AI Operations Copilot
 
-Independent portfolio project by Yanqing Ma, developed with AI coding assistance. A historical public experiment case, not miHoYo telemetry or a deployed production service.
+Independent portfolio project by Yanqing Ma, developed with AI coding assistance. A historical public experiment case, based on public historical data, not a live production feed.
 
 ## What decision does it support?
 Should a game's progression gate move from level 30 to 40? The workflow connects data checks, retention evidence, uncertainty and an operational recommendation.

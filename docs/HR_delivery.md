@@ -2,7 +2,7 @@
 
 ## 推荐的交付顺序
 
-1. **优先附件：两页 PDF 项目介绍。** 对方无需安装环境即可了解业务问题、结果、岗位能力、适用范围和使用方式。
+1. **优先附件：两页 PDF 项目介绍。** 对方无需安装环境即可了解业务问题、结果、分析能力、适用范围和使用方式。
 2. **可选：免安装浏览包。** 解压 HR_review_pack.zip 后，打开 PDF 或 index.html；内含中英文介绍及决策简报。
 3. **技术深入：单独的源码包或实际已发布的仓库链接。** 不将源码安装设为 HR 阅读前提。源码：https://github.com/jackzmyq/game-retention-copilot 。访客版：https://jackzmyq.github.io/game-retention-copilot/ 。
 
