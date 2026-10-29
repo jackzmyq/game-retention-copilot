@@ -124,7 +124,7 @@ def _build_to(con,reports):
                   "players_per_arm":required_n(float(c.d7_rate),.01)},
       "limitations":["No region, timestamps, revenue, acquisition or exposure logs",
                       "Source materials conflict on rounds horizon (7 vs 14 days); recorded total only, not a verified early-window feature",
-                      "Historical tutorial experiment; not miHoYo data or current industry benchmark",
+                      "Historical tutorial experiment; not a live production feed or current industry benchmark",
                       "Equal allocation assumed, not source-verified; SRM is a screening check",
                       "Recorded-period rounds cannot establish an early causal driver or valid prospective churn predictor",
                       "D7 primary metric chosen retrospectively for this portfolio; experiment preregistration unavailable"]}
