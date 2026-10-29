@@ -24,7 +24,7 @@ def guide_markdown(analysis,language="zh"):
     d7=next(r for r in analysis["tests"] if r["metric"]=="D7")
     if language=="en":
         lines=["# Game Retention Experiment Analytics & AI Operations Copilot",
-            "\nIndependent portfolio project by Yanqing Ma, developed with AI coding assistance. A historical public experiment case, not miHoYo telemetry or a deployed production service.",
+            "\nIndependent portfolio project by Yanqing Ma, developed with AI coding assistance. A historical public experiment case, based on public historical data, not a live production feed.",
             "\n## What decision does it support?",
             "Should a game's progression gate move from level 30 to 40? The workflow connects data checks, retention evidence, uncertainty and an operational recommendation.",
             f"\n## What was found?\n\nThe release includes {analysis['rows']:,} players. D7 retention is {c['d7_rate']:.2%} in gate_30 and {t['d7_rate']:.2%} in gate_40. The difference is {d7['delta']*100:+.3f} percentage points, with pointwise 95% CI [{d7['ci_low']*100:+.3f}, {d7['ci_high']*100:+.3f}] pp.",
@@ -38,14 +38,14 @@ def guide_markdown(analysis,language="zh"):
             f"\nSource fingerprint: `{analysis['source_sha256']}`.\n\nSource: https://assets.datacamp.com/production/project_184/datasets/cookie_cats.csv"]
     else:
         lines=["# 游戏留存实验分析与 AI 运营助手",
-            "\n马延青｜个人作品，开发使用 AI 编程辅助。基于历史公开实验的分析案例，不是米哈游内部数据或已上线生产服务。",
+            "\n马延青｜个人作品，开发使用 AI 编程辅助。基于历史公开实验的分析案例，使用公开历史样本，不代表实时生产数据。",
             "\n## 一句话理解\n\n用数据回答“游戏进度门槛从第 30 关移到第 40 关，是否值得上线”，并将分析过程做成可查证据、可看情景、可输出双语报告的工作台。",
             f"\n## 核心发现\n\n公开样本包含 {analysis['rows']:,} 名玩家。D7 留存由对照组的 {c['d7_rate']:.2%} 变为实验组的 {t['d7_rate']:.2%}，差异 {d7['delta']*100:+.3f} 个百分点，单指标 95% 区间 [{d7['ci_low']*100:+.3f}, {d7['ci_high']*100:+.3f}] 个百分点。",
             "建议暂缓全量上线，先核查实验完整性。预期分流比例未提供；50:50 假设下的比例异常只是复核信号，不代表已证明实验失败。",
             "\n## 三分钟浏览路线\n\n1. **实验决策**：看结论、两组人数与留存区间。\n2. **决策沙盘**：改变假设玩家规模或容忍边界，查看业务含义；人数换算不是实际损失。\n3. **行为与质量**：看极端记录和回访组合，理解为什么不轻易作流失归因。\n4. **AI 分析助手**：选择离线规则，点击“评估是否上线”，再点击或输入地区问题，展开每条回答的证据。无需提供 API Key。",
             "\n## 适用范围\n\n| 分类 | 场景 | 当前支持程度 |\n|---|---|---|",
             *[f"| {x} | {y} | {z} |" for x,y,z in scope_rows("zh")],
-            "\n## 能展示的岗位能力\n\n- **数据分析**：用 SQL/Python 构建留存指标，评估实验效果。\n- **业务判断**：结合区间、完整性和业务边界提出行动建议。\n- **交付沟通**：交互看板、可复核证据和中英文简报。\n- **AI 工程**：已实现受限工具调用接口；真实模型调用验收待完成。",
+            "\n## 核心分析能力\n\n- **数据分析**：用 SQL/Python 构建留存指标，评估实验效果。\n- **业务判断**：结合区间、完整性和业务边界提出行动建议。\n- **交付沟通**：交互看板、可复核证据和中英文简报。\n- **AI 工程**：已实现受限工具调用接口；真实模型调用验收待完成。",
             "\n## 如何体验\n\n免安装介绍文件可直接用浏览器打开，不需要 Python、账号或密钥。免登录访客版：https://jackzmyq.github.io/game-retention-copilot/ ，支持分析、沙盘、下载和离线规则。网页 SQL 为 Python 构建时已执行的聚合查询记录。完整 Python 版可本地运行；localhost 不是外部访问地址。技术面试官如需复现，可使用单独提供的源码包，按 README.md 运行。",
             "\n## 重要边界\n\n数据没有国家、付费、逐日时间或门槛曝光事件；累计局数的源说明存在 7/14 天冲突，不能作为早期预测特征。当前程序适配固定的已审核数据，不支持任意 CSV 上传，不是实时游戏监控平台，也不会自动修改游戏配置。",
             f"\n来源指纹：`{analysis['source_sha256']}`。\n\n来源：https://assets.datacamp.com/production/project_184/datasets/cookie_cats.csv"]

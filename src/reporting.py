@@ -47,7 +47,7 @@ Under an **assumed, unverified 50:50 allocation**, the sample-ratio-mismatch scr
 The public sample supports a negative D7 difference. It does not identify whether pacing, difficulty or another mechanism explains it. Keep gate_30 as the provisional reference; audit assignment, deduplication, observation maturity, platform balance, and exposure. If integrity is confirmed, consider a new fixed-horizon experiment with prespecified D7 and guardrails. For illustration, a 1 pp absolute decline at baseline {c['d7_rate']:.2%}, 80% power, two-sided alpha 0.05 requires approximately **{a['planning']['players_per_arm']:,} players per arm** under an equal-allocation normal approximation. This is a planning scenario, not achieved power or observed lift.
 
 ## Scope
-Historical Cookie Cats educational A/B release, not miHoYo telemetry. No raw timestamps, country, channel, payments or gate-exposure events. D7 is a source flag for return seven days after installation; it is not cumulative seven-day retention. The selected primary outcome and tests are retrospective, not verified preregistration. Teaching materials conflict on the rounds horizon (7 vs 14 days); the recorded aggregate is post-treatment, overlaps the outcome, and must not be used as a prospective churn predictor or a causal segment. The 49,854-round record is retained; the exclusion is sensitivity-only. Regional expansion requires new data and market-specific validation.
+Historical Cookie Cats educational A/B release, not a live production feed. No raw timestamps, country, channel, payments or gate-exposure events. D7 is a source flag for return seven days after installation; it is not cumulative seven-day retention. The selected primary outcome and tests are retrospective, not verified preregistration. Teaching materials conflict on the rounds horizon (7 vs 14 days); the recorded aggregate is post-treatment, overlaps the outcome, and must not be used as a prospective churn predictor or a causal segment. The 49,854-round record is retained; the exclusion is sensitivity-only. Regional expansion requires new data and market-specific validation.
 '''
     return f'''# 游戏留存实验：运营决策简报
 
@@ -66,7 +66,7 @@ Historical Cookie Cats educational A/B release, not miHoYo telemetry. No raw tim
 当前样本显示 gate_40 的 D7 留存更低；不能据此断言是“难度提高”或“长草期”导致。以 gate_30 为暂时参照，优先核查分流、去重、观察窗口成熟度、平台平衡与门槛曝光。完整性确认后，再决定是否开展预先定义主指标和护栏的固定周期复测。若以基线 {c['d7_rate']:.2%}、检测绝对下降 1 个百分点、80% 检验功效、双侧 alpha=0.05 规划新实验，等比例分组的正态近似所需样本约为**每组 {a['planning']['players_per_arm']:,} 人**；这是规划场景，不是已实现的收益或事后功效。
 
 ## 分析边界
-本项目使用 Cookie Cats 历史教学实验数据，不是米哈游内部数据。没有逐日时间戳、地区、渠道、付费或实际门槛曝光记录。D7 为安装后第七天返回的源数据标记，不是七日内累计返回；D1 与 D7 不是依次收窄的漏斗。本项目事后选择 D7 为主指标，并非已核验的实验预注册。累计局数在教学材料中存在 7 天 / 14 天窗口表述冲突，不能核定为早期特征；其发生在分流后且覆盖结果窗口，不能用于早期流失预测或按曝光用户划分因果效果。49,854 局极端记录在主分析中保留，删除仅作敏感性检查。结论不能直接外推到其他品类或地区。
+本项目使用 Cookie Cats 历史教学实验数据，仅代表本案例的公开历史样本。没有逐日时间戳、地区、渠道、付费或实际门槛曝光记录。D7 为安装后第七天返回的源数据标记，不是七日内累计返回；D1 与 D7 不是依次收窄的漏斗。本项目事后选择 D7 为主指标，并非已核验的实验预注册。累计局数在教学材料中存在 7 天 / 14 天窗口表述冲突，不能核定为早期特征；其发生在分流后且覆盖结果窗口，不能用于早期流失预测或按曝光用户划分因果效果。49,854 局极端记录在主分析中保留，删除仅作敏感性检查。结论不能直接外推到其他品类或地区。
 '''
 
 

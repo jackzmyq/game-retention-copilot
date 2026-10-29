@@ -10,7 +10,7 @@ from src.reporting import load_analysis, decision_report
 from src.decision import impact_scenario, harm_lens
 
 SYSTEM = """You are a game operations analytics assistant. Answer in the user's language.
-You only have a historical Cookie Cats experiment, NOT miHoYo data.
+You only have a historical Cookie Cats experiment, not a live production feed or evidence for another product.
 Use tools before stating numeric facts. Read metric definitions when interpreting retention.
 Use v_test_results for inference, not invented p-values. Delta=gate_40 minus gate_30; fractions must be converted to percentage points.
 If asked about a decline, check the sample ratio and data quality before recommending rollout.
